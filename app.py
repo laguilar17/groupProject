@@ -1,17 +1,23 @@
 from flask import Flask, render_template, request
-from functions import HangmanGame
+from static.functions import HangmanGame
 
 app = Flask(__name__)
 
-# global game
-# game = HangmanGame()
+global gameInstance
+gameInstance = HangmanGame()
 # word = game.word
 # guesses = game.guesses
 # wrongGuesses = game.wrongGuesses
-
-
-def retrieveWord():
-    return game.getWord()
+# word_progress = game.word_progress()
+# def gameInstance(gameTemp):
+#     gameTemp
+#
+# def wordProgress(gword):
+#     game.guess(gword)
+#
+#
+# def retrieveWord():
+#     return game.getWord()
 
 
 def readDetails(filepath):
@@ -29,17 +35,21 @@ def home():  # put application's code here
 @app.route('/game', methods=['GET', 'POST'])
 def game():
     # word = retrieveWord()
-    game = HangmanGame()
+    # game = HangmanGame()
     # word = game.word
-    letter = None
     # wrong_guess = None
+    # gameInstance(game)
+    letter = None
 
     if request.method == 'POST':
         letter = request.form['char']
-        game.guess(letter)
-    current_word = game.word_progress()
-    wrong_guess = ''.join(game.wrongGuesses)
-    # wrong_guess.join(game.wrongGuesses)
+        gameInstance.guess(letter)
+        # wordProgress(letter)
+
+    current_word = gameInstance.word_progress()
+    # current_word = word_progress
+    wrong_guess = ''.join(gameInstance.wrongGuesses)
+    # wrong_guess = "test"
 
     return render_template("game.html", word=current_word, letter=letter, wrong_guess=wrong_guess)
 
