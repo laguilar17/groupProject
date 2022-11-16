@@ -1,11 +1,4 @@
 class HangmanGame:
-    # word = "hello"  # stores word
-    # wordList = []
-    # wordList = list(word)
-    # guesses = []  # stores correct guesses
-    # wrongGuesses = []  # stores wrong guesses
-    # numGuess = 0
-
     def __init__(self):
         self.word = "hello" # stores word
         self.wordList = []
