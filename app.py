@@ -25,6 +25,8 @@ def game():
     if request.method == 'POST':
         letter = request.form['char']
         gameInstance.guess(letter)
+        # if (gameInstance.winCon() == 'play'):
+        #     pass
 
     current_word = gameInstance.word_progress()
     wrong_guess = ''.join(gameInstance.wrongGuesses)
