@@ -13,7 +13,7 @@ def readDetails(filepath):
 
 
 @app.route('/')
-def home():  # put application's code here
+def home():
     details = readDetails('static/details.txt')
     return render_template("home.html", name='Group 4', aboutMe=details)
 
@@ -32,12 +32,12 @@ def game():
     return render_template("game.html", word=current_word, letter=letter, wrong_guess=wrong_guess)
 
 
-@app.route('/form', methods=['GET', 'POST'])
-def formDemo():
-    name = None
-    if request.method == 'POST':
-        name = request.form['name']
-    return render_template('form.html', name=name)
+# @app.route('/form', methods=['GET', 'POST'])
+# def formDemo():
+#     name = None
+#     if request.method == 'POST':
+#         name = request.form['name']
+#     return render_template('form.html', name=name)
 
 
 if __name__ == '__main__':
