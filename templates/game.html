@@ -15,6 +15,14 @@
     </div>
 <div>
     <h1>{{ word }}</h1>
+    <h3>{% for mess in get_flashed_messages()  %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{mess}}
+        </div>
+      {% endfor %}</h3>
     <h2>Wrong Guesses:{{ wrong_guess }}</h2>
     <h3>Remaining guesses: {{ remain_guess }}</h3>
     <br class="form">
