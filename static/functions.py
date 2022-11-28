@@ -71,6 +71,9 @@ class HangmanGame:
         randNum = random.randint(0,len(lines))
         return lines[randNum]
 
+    def remainingGuesses(self):
+        return 7 - self.numGuess
+
 # game = HangmanGame()
 # print(game.word)
 # print(game.guesses)

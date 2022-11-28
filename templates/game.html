@@ -6,18 +6,19 @@
     <title>Game</title>
 </head>
 <body>
-    <h2>Hangman Game</h2>
+    <h1>Hangman Game</h1>
 {#    <div class="menu-link">#}
 {#        <a href="/user/Herbert">Other Page</a>#}
 {#    </div>#}
-    <div style="text-align: right;">
+    <div style="text-align: center;">
         <img src="static/personhanging.png" alt="myProfileImage">
     </div>
 <div>
     <h1>{{ word }}</h1>
-    <h2>{{ wrong_guess }}</h2>
-    <br>
-    <form method="post">
+    <h2>Wrong Guesses:{{ wrong_guess }}</h2>
+    <h3>Remaining guesses: {{ remain_guess }}</h3>
+    <br class="form">
+    <form method="post" class="form">
     Guess Letter: <input name="char"/>
     <br/><br/>
     <button type="submit">Submit</button>
