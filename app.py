@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from static.functions import HangmanGame
 
 app = Flask(__name__)
@@ -21,10 +21,14 @@ def home():
 @app.route('/game', methods=['GET', 'POST'])
 def game():
     letter = None
+    error = None
 
     if request.method == 'POST':
         letter = request.form['char']
-        gameInstance.guess(letter)
+        if len(letter) > 1:
+            error = 'Invalid Input'
+        else:
+            gameInstance.guess(letter)
         if (gameInstance.winCon() == 'play'):
             pass
         elif(gameInstance.winCon() == 'win'):
@@ -37,7 +41,7 @@ def game():
     
     rem_guesses = gameInstance.remainingGuesses()
 
-    return render_template("game.html", word=current_word, letter=letter, wrong_guess=wrong_guess, remain_guess=rem_guesses)
+    return render_template("game.html", word=current_word, letter=letter, wrong_guess=wrong_guess, remain_guess=rem_guesses,error=error)
 
 @app.route('/win', methods=['GET', 'POST'])
 def win():
