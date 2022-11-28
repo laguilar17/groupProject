@@ -1,11 +1,15 @@
+import random
+
+
 class HangmanGame:
     def __init__(self):
-        self.word = "hello" # stores word
+        self.word = HangmanGame.randWord()  # stores word
         self.wordList = []
         self.wordList = list(self.word)
         self.guesses = []  # stores correct guesses
         self.wrongGuesses = []  # stores wrong guesses
         self.numGuess = 0
+    
 
     def getWord(self):
         return self.word
@@ -52,6 +56,20 @@ class HangmanGame:
         else:
             return "play"
 
+    def playAgain(self):
+        self.word = HangmanGame.randWord()  # stores word
+        self.wordList = []
+        self.wordList = list(self.word)
+        self.guesses = []  # stores correct guesses
+        self.wrongGuesses = []  # stores wrong guesses
+        self.numGuess = 0
+
+    def randWord():
+        with open("static/dictionary.txt") as file:
+            lines = [line.rstrip() for line in file]
+
+        randNum = random.randint(0,len(lines))
+        return lines[randNum]
 
 # game = HangmanGame()
 # print(game.word)
