@@ -1,5 +1,5 @@
 Hello, Group 4 aim was to make the Hangman game in our app.
 The game is a one-player game where the player must guess a word, one letter at a time.
-The word is randomly picked from a large bank of words file. Whenever the word is chosen it will be displayed in dashes equivalent to the number of letters in the word.
+The word is randomly picked from a dictionary of words text file. Whenever the word is chosen it will be displayed in dashes equivalent to the number of letters in the word.
 Whenever a letter is guessed wrong it will be displayed, the same is true for guessing a letter correctly, it will be displayed and take the place of the dash where it is supposed to be.
 Lastly, implementing a word API which can change the difficulty of the game is one of our future goals.

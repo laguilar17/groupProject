@@ -34,8 +34,10 @@ def game():
 
     current_word = gameInstance.word_progress()
     wrong_guess = ''.join(gameInstance.wrongGuesses)
+    
+    rem_guesses = gameInstance.remainingGuesses()
 
-    return render_template("game.html", word=current_word, letter=letter, wrong_guess=wrong_guess,)
+    return render_template("game.html", word=current_word, letter=letter, wrong_guess=wrong_guess, remain_guess=rem_guesses)
 
 @app.route('/win', methods=['GET', 'POST'])
 def win():
