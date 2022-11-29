@@ -1,11 +1,8 @@
 import random
 
-
 class HangmanGame:
     def __init__(self):
         self.word = HangmanGame.randWord()  # stores word
-        self.wordList = []
-        self.wordList = list(self.word)
         self.guesses = []  # stores correct guesses
         self.wrongGuesses = []  # stores wrong guesses
         self.numGuess = 0
@@ -35,7 +32,6 @@ class HangmanGame:
     def word_progress(self):
         current_word = []
         current_string = ""
-        # i = 0
         j = 0
         for i in range(len(self.word)):
             current_word.append("-")
@@ -58,8 +54,6 @@ class HangmanGame:
 
     def playAgain(self):
         self.word = HangmanGame.randWord()  # stores word
-        self.wordList = []
-        self.wordList = list(self.word)
         self.guesses = []  # stores correct guesses
         self.wrongGuesses = []  # stores wrong guesses
         self.numGuess = 0
